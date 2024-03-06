@@ -90,7 +90,7 @@ const Wolca = () => {
           <img src={WolcaBG} />
         </div>
         <div className="scroll-div" ref={scrollableDivRef}>
-          {!isEndReached && <div className="top"></div>}
+           <div className={isEndReached ? "d-remove" : "top"} />
           <h2>
             World of Life Christian Assembly's website serves as a seamless
             platform for member registration and offers a dynamic promotional

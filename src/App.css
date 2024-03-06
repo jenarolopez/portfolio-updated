@@ -290,12 +290,6 @@ a:hover {
   grid-template-columns: 40% 60%;
 }
 
-.img-container img {
-  margin-top: 20px;
-  border-radius: 10px;
-  max-height: 300px;
-  object-fit: contain;
-}
 
 .img-container {
   overflow: hidden;
@@ -307,11 +301,10 @@ a:hover {
 .img-container > .img {
   position: absolute;
   width: calc(100% - 20px);
-  min-height: 500px;
+  height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top;
-  
 }
 
 .table-content {
@@ -350,6 +343,19 @@ a:hover {
   opacity: 0;
 }
 
+.d-remove {
+  height: 0px;
+  animation: reduceHeight 0.5s;
+}
+
+@keyframes reduceHeight {
+  from {
+    height: calc(60vh - 120px);
+  }
+  to {
+    height: 0px;
+  }
+}
 
 @keyframes moveRightIn {
   from {

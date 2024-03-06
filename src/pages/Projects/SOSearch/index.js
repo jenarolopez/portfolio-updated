@@ -122,7 +122,7 @@ const SOSearch = () => {
           })}
         </div>
         <div ref={scrollableDivRef} className="scroll-div">
-          {!isEndReached && <div className="top"></div>}
+          <div className={isEndReached ? "d-remove" : "top"} />
           <h2>
             SOSearch is a dating application catering to young adults and adults
             in the USA, available on both mobile and web platforms. It offers a

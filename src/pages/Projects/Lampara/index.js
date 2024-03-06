@@ -89,7 +89,7 @@ const Lampara = () => {
           <img src={WolcaBG} />
         </div>
         <div className="scroll-div" ref={scrollableDivRef}>
-          {!isEndReached && <div className="top"></div>}
+          <div className={isEndReached ? "d-remove" : "top"} />
           <h2>
             Lampara is a set of systems that manages schools. They have School
             Management System that schedules events, monitor classes, enroll
