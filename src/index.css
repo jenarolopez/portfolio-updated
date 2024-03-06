@@ -1,8 +1,14 @@
+@font-face {
+	font-family: "Rabbit";
+	src: url(../public/font/WHITRABT.TTF);
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Rabbit", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
