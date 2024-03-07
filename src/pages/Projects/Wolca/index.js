@@ -90,22 +90,24 @@ const Wolca = () => {
           <img src={WolcaBG} />
         </div>
         <div className="scroll-div" ref={scrollableDivRef}>
-           <div className={isEndReached ? "d-remove" : "top"} />
-          <h2>
-            World of Life Christian Assembly's website serves as a seamless
-            platform for member registration and offers a dynamic promotional
-            space that showcases the vibrant community and its impactful
-            initiatives. With user-friendly features and engaging content, it
-            fosters a sense of belonging while effectively communicating the
-            organization's mission and values to a global audience.
-          </h2>
-          <h2>
-            As a solo freelance developer, my primary role is to conceptualize,
-            design, develop, and deploy the website for World of Life Christian
-            Assembly. I handle all aspects of the project, ensuring a seamless
-            user experience and effective deployment for the organization's
-            members and promotional purposes.
-          </h2>
+          <div className={isEndReached ? "d-remove" : "top"} />
+          <div className="top">
+            <h2>
+              World of Life Christian Assembly's website serves as a seamless
+              platform for member registration and offers a dynamic promotional
+              space that showcases the vibrant community and its impactful
+              initiatives. With user-friendly features and engaging content, it
+              fosters a sense of belonging while effectively communicating the
+              organization's mission and values to a global audience.
+            </h2>
+            <h2>
+              As a solo freelance developer, my primary role is to
+              conceptualize, design, develop, and deploy the website for World
+              of Life Christian Assembly. I handle all aspects of the project,
+              ensuring a seamless user experience and effective deployment for
+              the organization's members and promotional purposes.
+            </h2>
+          </div>
         </div>
       </div>
     </div>

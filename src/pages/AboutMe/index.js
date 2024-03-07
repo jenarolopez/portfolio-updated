@@ -4,8 +4,6 @@ import DownArrow from "../../assets/svg/DownArrow";
 const AboutMe = (props) => {
   const downloadLinkRef = useRef(null);
   const downloadFile = () => {
-    const fileUrl = "/resume/resume.pdf";
-    downloadLinkRef.current.href = fileUrl;
     downloadLinkRef.current.click();
   };
   return (
@@ -34,6 +32,7 @@ const AboutMe = (props) => {
           <DownArrow className="down-arrow" />
         </span>
         <div className="line" style={{transform: "translateX(-8px) translateY(-5px)"}}></div>
+        <a ref={downloadLinkRef} href="./resume/resume.pdf"/>
       </div>
     </div>
   );

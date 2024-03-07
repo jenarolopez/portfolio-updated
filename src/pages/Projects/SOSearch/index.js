@@ -76,11 +76,10 @@ const SOSearch = () => {
             if (prev) {
               return prev;
             }
-            return (
-              scrollableDivRef.current.scrollTop >
+            const newScrollTop =
               scrollableDivRef.current.scrollHeight -
-                scrollableDivRef.current.clientHeight
-            );
+              scrollableDivRef.current.clientHeight;
+            return scrollableDivRef.current.scrollTop > newScrollTop;
           });
           const newTop = parseInt(scrollableDivRef.current.scrollTop + 1.5);
           scrollableDivRef.current.scrollTop = newTop + 1;
@@ -123,33 +122,35 @@ const SOSearch = () => {
         </div>
         <div ref={scrollableDivRef} className="scroll-div">
           <div className={isEndReached ? "d-remove" : "top"} />
-          <h2>
-            SOSearch is a dating application catering to young adults and adults
-            in the USA, available on both mobile and web platforms. It offers a
-            wide range of features resembling those of a social media platform,
-            including chat, video calls, and typical functionalities found in
-            other dating apps.
-          </h2>
-          <h2>
-            The standout feature of SOSearch is its calendar function, allowing
-            users to schedule dates seamlessly. Additionally, the app offers a
-            generous trial period of up to one year without any payment
-            required.
-          </h2>
-          <h2>
-            In my role as a software engineer for SOSearch, my focus is on
-            enhancing user experience, particularly in the areas of chat, video
-            calls, and real-time interactions. I'm responsible for overseeing
-            the development of both frontend and backend features, ensuring a
-            cohesive and seamless user journey.
-          </h2>
-          <h2>
-            Furthermore, I play a crucial role in managing and maintaining our
-            deployment server, as well as overseeing the Kubernetes
-            infrastructure and MySQL database. This involves continuous
-            monitoring, updates, and optimization to ensure the platform's
-            stability and performance meet the highest standards.
-          </h2>
+          <div className="top">
+            <h2>
+              SOSearch is a dating application catering to young adults and
+              adults in the USA, available on both mobile and web platforms. It
+              offers a wide range of features resembling those of a social media
+              platform, including chat, video calls, and typical functionalities
+              found in other dating apps.
+            </h2>
+            <h2>
+              The standout feature of SOSearch is its calendar function,
+              allowing users to schedule dates seamlessly. Additionally, the app
+              offers a generous trial period of up to one year without any
+              payment required.
+            </h2>
+            <h2>
+              In my role as a software engineer for SOSearch, my focus is on
+              enhancing user experience, particularly in the areas of chat,
+              video calls, and real-time interactions. I'm responsible for
+              overseeing the development of both frontend and backend features,
+              ensuring a cohesive and seamless user journey.
+            </h2>
+            <h2>
+              Furthermore, I play a crucial role in managing and maintaining our
+              deployment server, as well as overseeing the Kubernetes
+              infrastructure and MySQL database. This involves continuous
+              monitoring, updates, and optimization to ensure the platform's
+              stability and performance meet the highest standards.
+            </h2>
+          </div>
         </div>
       </div>
     </div>

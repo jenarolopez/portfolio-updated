@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import WolcaBG from "../../../assets/images/lampara.png";
 import { useEffectOnce } from "../helper.ts";
 
-const Lampara = () => {
+const UPPFI = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isEndReached, setIsEndReached] = useState(false);
   const [init, setInit] = useState(false);
@@ -11,6 +10,18 @@ const Lampara = () => {
   let startY = 0;
 
   useEffect(() => {
+    setTimeout(() => {
+      setInit(true);
+    }, 500);
+
+    const interval = setInterval(() => {
+      console.log("123123");
+      setCurrentImage((prev) => {
+        const selected = prev == 2 ? 0 : prev + 1;
+        return selected;
+      });
+    }, 5000);
+
     const handleScroll = (event) => {
       event.preventDefault();
       const delta = Math.max(-1, Math.min(1, event.deltaY || -event.detail));
@@ -39,6 +50,7 @@ const Lampara = () => {
     scrollableDivRef?.current?.addEventListener("mousedown", handleMouseDown);
 
     return () => {
+      clearInterval(interval);
       clearInterval(timingInterval);
       scrollableDivRef?.current?.removeEventListener("wheel", handleScroll);
       scrollableDivRef?.current?.removeEventListener(
@@ -83,34 +95,37 @@ const Lampara = () => {
 
   return (
     <div>
-      <h1>Lampara Systems</h1>
+      <h1>UPPFI Admin and Members Portal</h1>
       <div className="grid">
-        <div className={`flex flex-col img-container ${"visible"}`}>
-          <img src={WolcaBG} />
+        <div
+          className={`flex flex-col img-container ${
+            !init ? "d-none" : "visible"
+          }`}
+        >
+          {[0, 1, 2].map((item) => {
+            return (
+              <div
+                key={item}
+                className={`up${item + 1} img ${
+                  item == currentImage ? "visible" : "hidden"
+                }`}
+              />
+            );
+          })}
         </div>
         <div className="scroll-div" ref={scrollableDivRef}>
           <div className={isEndReached ? "d-remove" : "top"} />
           <div className="top">
             <h2>
-              Lampara is a set of systems that manages schools. They have School
-              Management System that schedules events, monitor classes, enroll
-              students and etc.
+              UPPFI Admin and Members Portal wesbite is a continues development
+              project. I am hired here as a freelance developer. My role for
+              this project is Full-stack developer and I manage the API
+              integration and also on the DevOps side that I deploy test server
+              and manage it.
             </h2>
             <h2>
-              I took every part of this system. As for the school management I
-              work on frontend. For the Learning Management System I work as a
-              full stack developer that manages the front end and backend.
-              Learning Management System has integration with the School
-              Management System.
-            </h2>
-            <h2>
-              Lampara also has accounting system that is made with ElectronJS
-              and it is also react base. My role is also a full stack developer
-              and it also has integration with the School Managements System.
-            </h2>
-            <h2>
-              I also monitor and updates the deployment server that is hosted on
-              Digital Ocean.
+              This Project uses PHP Laravel and we deployed it on the Linode
+              Server.
             </h2>
           </div>
         </div>
@@ -119,4 +134,4 @@ const Lampara = () => {
   );
 };
 
-export default Lampara;
+export default UPPFI;

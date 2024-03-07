@@ -250,10 +250,28 @@ a:hover {
   text-align: left;
   overflow: hidden;
   overflow-y: "scroll";
+  position: relative;
+}
+
+.backtotable {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.backtotable .line {
+  width: 187px;
+}
+
+.backtotable span  {
+  font-size: 18px;
 }
 
 .scroll-div .top {
-  height: calc(60vh - 120px);
+  min-height: calc(60vh - 140px);
+  display: flex;
+  flex-direction: column;
 }
 
 .scroll-div {
@@ -289,7 +307,6 @@ a:hover {
   display: grid;
   grid-template-columns: 40% 60%;
 }
-
 
 .img-container {
   overflow: hidden;
@@ -339,13 +356,40 @@ a:hover {
   background-image: url("../public/img/SOS/6.png");
 }
 
+.up1 {
+  background-image: url("../public/img/UP/1.png");
+}
+.up2 {
+  background-image: url("../public/img/UP/2.png");
+}
+.up3 {
+  background-image: url("../public/img/UP/3.png");
+}
+
 .d-none {
   opacity: 0;
 }
 
 .d-remove {
   height: 0px;
-  animation: reduceHeight 0.5s;
+  animation: reduceHeight 0.5s ease;
+}
+
+.showcase {
+  width: 500px;
+  min-height: 300px;
+  object-fit: contain;
+  align-self: center;
+  justify-self: center;
+  object-position: top;
+}
+
+.others-title {
+  text-align: center;
+}
+
+.others-title::first-letter {
+  margin: 0px !important;
 }
 
 @keyframes reduceHeight {

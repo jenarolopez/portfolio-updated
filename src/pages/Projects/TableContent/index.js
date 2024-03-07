@@ -89,14 +89,44 @@ const TableContent = (props) => {
           props.setTab(6);
         }}
       >
-        Other Projects
+        Other Recent Projects
       </li>
       <ul>
-        <li>Face Recognition Mobile</li>
-        <li>TopNotch Petshop Website</li>
-        <li>Plagiarish and Grammar Checker Website (Our Thesis)</li>
-        <li>Manga Website</li>
-        <li>NLEX Scheduling Management Desktop</li>
+        <li
+          onClick={() => {
+            props.setTab(6);
+          }}
+        >
+          Plagiarish and Grammar Checker Website (Our Thesis)
+        </li>
+        <li
+          onClick={() => {
+            props.setTab(6);
+          }}
+        >
+          Face Recognition Mobile
+        </li>
+        <li
+          onClick={() => {
+            props.setTab(6);
+          }}
+        >
+          NLEX Scheduling Management Desktop
+        </li>
+        <li
+          onClick={() => {
+            props.setTab(6);
+          }}
+        >
+          TopNotch Petshop Website
+        </li>
+        <li
+          onClick={() => {
+            props.setTab(6);
+          }}
+        >
+          Manga Website
+        </li>
       </ul>
     </ul>
   );
