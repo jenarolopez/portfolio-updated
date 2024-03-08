@@ -53,10 +53,21 @@ const SOSearch = () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
+    const handleTouchStart = (event) => {
+      startY = event.touches[0].clientY;
+    };
+
+    const handleTouchMove = (event) => {
+      event.preventDefault();
+      const deltaY = event.touches[0].clientY - startY;
+      scrollableDivRef.current.scrollTop -= deltaY * 2; // Adjust scrolling speed as needed
+      startY = event.touches[0].clientY;
+    };
 
     scrollableDivRef?.current?.addEventListener("wheel", handleScroll);
     scrollableDivRef?.current?.addEventListener("mousedown", handleMouseDown);
-
+    scrollableDivRef?.current?.addEventListener("touchstart", handleTouchStart);
+    scrollableDivRef?.current?.addEventListener("touchmove", handleTouchMove);
     return () => {
       clearInterval(interval);
       clearInterval(timingInterval);
@@ -64,6 +75,14 @@ const SOSearch = () => {
       scrollableDivRef?.current?.removeEventListener(
         "mousedown",
         handleMouseDown
+      );
+      scrollableDivRef?.current?.removeEventListener(
+        "touchstart",
+        handleTouchStart
+      );
+      scrollableDivRef?.current?.removeEventListener(
+        "touchmove",
+        handleTouchMove
       );
     };
   }, []);
@@ -78,7 +97,7 @@ const SOSearch = () => {
             }
             const newScrollTop =
               scrollableDivRef.current.scrollHeight -
-              scrollableDivRef.current.clientHeight;
+              scrollableDivRef.current.clientHeight - 10;
             return scrollableDivRef.current.scrollTop > newScrollTop;
           });
           const newTop = parseInt(scrollableDivRef.current.scrollTop + 1.5);
@@ -101,7 +120,7 @@ const SOSearch = () => {
   }, [timingInterval]);
 
   return (
-    <div>
+    <>
       <h1>SOSearch</h1>
       <div className="grid">
         <div
@@ -153,7 +172,7 @@ const SOSearch = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

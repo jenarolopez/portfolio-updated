@@ -7,10 +7,13 @@ import Welcome from "./pages/Welcome";
 import AboutMe from "./pages/AboutMe";
 import Projects from "./pages/Projects";
 import ContactMe from "./pages/ContactMe";
+import Close from "./assets/svg/Close";
+import Hamburger from "./assets/svg/Hamburger";
 
 function App() {
   const [currentTab, setCurrentTab] = useState(0);
   const [resetTab, setResetTab] = useState(false);
+  const [sidebarOpen, setSideBarOpen] = useState(false);
   const components = [
     <Welcome
       nextPage={() => {
@@ -22,7 +25,7 @@ function App() {
         setCurrentTab(currentTab + 1);
       }}
     />,
-    <Projects resetTab={resetTab} setResetTab={setResetTab}/>,
+    <Projects resetTab={resetTab} setResetTab={setResetTab} />,
     <ContactMe />,
   ];
   const [loadBackground, setLoadBackground] = useState(false);
@@ -33,6 +36,16 @@ function App() {
   }, []);
   return (
     <div className="App">
+      <span
+        className={`side-button-open pointer ${
+          sidebarOpen ? "remove-burger" : ""
+        }`}
+        onClick={() => {
+          setSideBarOpen(true);
+        }}
+      >
+        <Hamburger />
+      </span>
       {/* <div className="carousel-container">{carousel[currentTab]}</div> */}
       {[0, 1, 2, 3].map((index) => {
         const bg = "bg" + (index + 1);
@@ -49,10 +62,24 @@ function App() {
         style={{ zIndex: loadBackground ? -10 : -1 }}
       />
 
-      <div className="flex flex-col content-left">
+      <div
+        className={`flex flex-col content-left ${
+          sidebarOpen ? "side-open" : "side-close close"
+        }`}
+      >
+        <span
+          className="side-button-close pointer"
+          onClick={() => {
+            setSideBarOpen(false);
+          }}
+        >
+          <Close />
+        </span>
+        <div className={`bg-default background`} />
         <span
           onClick={() => {
             setCurrentTab(0);
+            setSideBarOpen(false);
           }}
           onMouseEnter={(e) => {
             // console.log(e, "123");
@@ -64,6 +91,7 @@ function App() {
         <span
           onClick={() => {
             setCurrentTab(1);
+            setSideBarOpen(false);
           }}
           className="pointer"
         >
@@ -72,7 +100,8 @@ function App() {
         <span
           onClick={() => {
             setCurrentTab(2);
-            setResetTab(true)
+            setSideBarOpen(false);
+            setResetTab(true);
           }}
           className="pointer"
         >
@@ -81,6 +110,7 @@ function App() {
         <span
           onClick={() => {
             setCurrentTab(3);
+            setSideBarOpen(false);
           }}
           className="pointer"
         >

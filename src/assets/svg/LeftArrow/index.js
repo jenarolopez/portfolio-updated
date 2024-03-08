@@ -8,7 +8,7 @@ const LeftArrow = () => {
       id="left-arrow"
       dataName="Flat Color"
       xmlns="http://www.w3.org/2000/svg"
-      class="right-arrow"
+      className="right-arrow"
     >
       <path
         id="primary"

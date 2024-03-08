@@ -36,9 +36,20 @@ const AIF = () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
+    const handleTouchStart = (event) => {
+      startY = event.touches[0].clientY;
+    };
 
+    const handleTouchMove = (event) => {
+      event.preventDefault();
+      const deltaY = event.touches[0].clientY - startY;
+      scrollableDivRef.current.scrollTop -= deltaY * 2; // Adjust scrolling speed as needed
+      startY = event.touches[0].clientY;
+    };
     scrollableDivRef?.current?.addEventListener("wheel", handleScroll);
     scrollableDivRef?.current?.addEventListener("mousedown", handleMouseDown);
+    scrollableDivRef?.current?.addEventListener("touchstart", handleTouchStart);
+    scrollableDivRef?.current?.addEventListener("touchmove", handleTouchMove);
 
     return () => {
       clearInterval(timingInterval);
@@ -46,6 +57,14 @@ const AIF = () => {
       scrollableDivRef?.current?.removeEventListener(
         "mousedown",
         handleMouseDown
+      );
+      scrollableDivRef?.current?.removeEventListener(
+        "touchstart",
+        handleTouchStart
+      );
+      scrollableDivRef?.current?.removeEventListener(
+        "touchmove",
+        handleTouchMove
       );
     };
   }, []);
@@ -61,7 +80,7 @@ const AIF = () => {
             return (
               scrollableDivRef.current.scrollTop >
               scrollableDivRef.current.scrollHeight -
-                scrollableDivRef.current.clientHeight
+                scrollableDivRef.current.clientHeight - 10
             );
           });
           const newTop = parseInt(scrollableDivRef.current.scrollTop + 1.5);
