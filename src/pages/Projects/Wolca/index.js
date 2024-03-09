@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import WolcaBG from "../../../assets/images/church.png";
 import { useEffectOnce } from "../helper.ts";
+import LeftArrow from "../../../assets/svg/LeftArrow/index.js";
 
-const Wolca = () => {
+const Wolca = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isEndReached, setIsEndReached] = useState(false);
   const [init, setInit] = useState(false);
@@ -104,6 +105,13 @@ const Wolca = () => {
 
   return (
     <div>
+      <div onClick={()=>{props.setTab(0)}} className="parent-button backtotable">
+        <span>
+          <LeftArrow className="right-arrow " />
+          Table of Content
+        </span>
+        <div className="line"></div>
+      </div>
       <h1 className="wolca">World of Life Christian Assembly Website</h1>
       <div className="grid">
         <div className={`flex flex-col img-container ${"visible"}`}>

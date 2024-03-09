@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useEffectOnce } from "../helper.ts";
+import LeftArrow from "../../../assets/svg/LeftArrow/index.js";
 
-const UPPFI = () => {
+const UPPFI = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isEndReached, setIsEndReached] = useState(false);
   const [init, setInit] = useState(false);
@@ -114,6 +115,18 @@ const UPPFI = () => {
 
   return (
     <div>
+      <div
+        onClick={() => {
+          props.setTab(0);
+        }}
+        className="parent-button backtotable"
+      >
+        <span>
+          <LeftArrow className="right-arrow " />
+          Table of Content
+        </span>
+        <div className="line"></div>
+      </div>
       <h1>UPPFI Admin and Members Portal</h1>
       <div className="grid">
         <div

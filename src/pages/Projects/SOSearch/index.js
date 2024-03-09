@@ -9,8 +9,9 @@ import {
 } from "../../../assets/images/images";
 import { Carousel } from "react-responsive-carousel";
 import { useEffectOnce } from "../helper.ts";
+import LeftArrow from "../../../assets/svg/LeftArrow/index.js";
 
-const SOSearch = () => {
+const SOSearch = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isEndReached, setIsEndReached] = useState(false);
   const [init, setInit] = useState(false);
@@ -97,7 +98,8 @@ const SOSearch = () => {
             }
             const newScrollTop =
               scrollableDivRef.current.scrollHeight -
-              scrollableDivRef.current.clientHeight - 10;
+              scrollableDivRef.current.clientHeight -
+              10;
             return scrollableDivRef.current.scrollTop > newScrollTop;
           });
           const newTop = parseInt(scrollableDivRef.current.scrollTop + 1.5);
@@ -121,6 +123,18 @@ const SOSearch = () => {
 
   return (
     <>
+      <div
+        onClick={() => {
+          props.setTab(0);
+        }}
+        className="parent-button backtotable"
+      >
+        <span>
+          <LeftArrow className="right-arrow " />
+          Table of Content
+        </span>
+        <div className="line"></div>
+      </div>
       <h1>SOSearch</h1>
       <div className="grid">
         <div

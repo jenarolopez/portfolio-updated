@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useEffectOnce } from "../helper.ts";
+import LeftArrow from "../../../assets/svg/LeftArrow/index.js";
 
-const AIF = () => {
+const AIF = (props) => {
   const [isEndReached, setIsEndReached] = useState(false);
   const [init, setInit] = useState(false);
   const [timingInterval, setTimingInterval] = useState();
@@ -80,7 +81,8 @@ const AIF = () => {
             return (
               scrollableDivRef.current.scrollTop >
               scrollableDivRef.current.scrollHeight -
-                scrollableDivRef.current.clientHeight - 10
+                scrollableDivRef.current.clientHeight -
+                10
             );
           });
           const newTop = parseInt(scrollableDivRef.current.scrollTop + 1.5);
@@ -104,6 +106,18 @@ const AIF = () => {
 
   return (
     <div>
+      <div
+        onClick={() => {
+          props.setTab(0);
+        }}
+        className="parent-button backtotable"
+      >
+        <span>
+          <LeftArrow className="right-arrow " />
+          Table of Content
+        </span>
+        <div className="line"></div>
+      </div>
       <h1>AIF PCM System</h1>
       <div className="scroll-div" ref={scrollableDivRef}>
         <div className={isEndReached ? "d-remove" : "top"} />

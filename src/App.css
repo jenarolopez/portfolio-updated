@@ -281,7 +281,6 @@ a:hover {
 }
 
 @media screen and (min-width: 1024px) {
-
   .aboutme > h2 {
     padding-left: 40px;
     padding-right: 10px;
@@ -293,15 +292,15 @@ a:hover {
     padding-right: 10px;
     text-align: center;
   }
-  
+
   .welcome h1 {
     font-weight: bold;
   }
-  
+
   .welcome h2 {
     font-weight: bold;
   }
-  
+
   .welcome div > span {
     font-weight: bold;
   }
@@ -512,6 +511,7 @@ a:hover {
   top: 10px;
   left: 10px;
   cursor: pointer;
+  transform: translateY(15px);
 }
 
 .backtotable .line {
@@ -530,13 +530,28 @@ a:hover {
 
 .scroll-div .top img {
   object-fit: contain;
-  background-color: red;
 }
 
 .scroll-div {
   overflow: hidden;
   height: calc(80vh - (205px));
   /* overflow-y: scroll; */
+}
+
+.others-img-div {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.others-img-div > img {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
+  min-height: 0px !important;
 }
 
 .scroll-div-others {
@@ -620,9 +635,16 @@ a:hover {
 }
 
 @media screen and (min-width: 1024px) {
+  .backtotable {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    transform: none;
+  }
 
   .scroll-div-others {
-    min-height: 0px !important
+    min-height: 0px !important;
   }
 
   .table-content {
@@ -672,14 +694,14 @@ a:hover {
   }
 
   .scroll-div .top {
-    min-height: calc(60vh - 120px);
+    min-height: calc(60vh - 75px);
     display: flex;
     flex-direction: column;
   }
 
   .scroll-div {
     overflow: hidden;
-    height: calc(60vh - 120px);
+    height: calc(60vh - 75px);
     /* overflow-y: scroll; */
   }
 }

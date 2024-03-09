@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import WolcaBG from "../../../assets/images/lampara.png";
 import { useEffectOnce } from "../helper.ts";
+import LeftArrow from "../../../assets/svg/LeftArrow/index.js";
 
-const Lampara = () => {
+const Lampara = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isEndReached, setIsEndReached] = useState(false);
   const [init, setInit] = useState(false);
@@ -79,7 +80,8 @@ const Lampara = () => {
             return (
               scrollableDivRef.current.scrollTop >
               scrollableDivRef.current.scrollHeight -
-                scrollableDivRef.current.clientHeight - 10
+                scrollableDivRef.current.clientHeight -
+                10
             );
           });
           const newTop = parseInt(scrollableDivRef.current.scrollTop + 1.5);
@@ -103,6 +105,18 @@ const Lampara = () => {
 
   return (
     <div>
+      <div
+        onClick={() => {
+          props.setTab(0);
+        }}
+        className="parent-button backtotable"
+      >
+        <span>
+          <LeftArrow className="right-arrow " />
+          Table of Content
+        </span>
+        <div className="line"></div>
+      </div>
       <h1>Lampara Systems</h1>
       <div className="grid">
         <div className={`flex flex-col img-container ${"visible"}`}>

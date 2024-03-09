@@ -8,7 +8,7 @@ import Bg5 from "../../../assets/images/Others/5.png";
 import Bg6 from "../../../assets/images/Others/6.png";
 import LeftArrow from "../../../assets/svg/LeftArrow/index.js";
 
-const Others = () => {
+const Others = (props) => {
   const [isEndReached, setIsEndReached] = useState(false);
   const [init, setInit] = useState(false);
   const [timingInterval, setTimingInterval] = useState();
@@ -88,7 +88,8 @@ const Others = () => {
             return (
               scrollableDivRef.current.scrollTop >
               scrollableDivRef.current.scrollHeight -
-                scrollableDivRef.current.clientHeight - 10
+                scrollableDivRef.current.clientHeight -
+                10
             );
           });
           const newTop = parseInt(scrollableDivRef.current.scrollTop + 1.5);
@@ -112,7 +113,7 @@ const Others = () => {
 
   return (
     <div>
-      <div className="parent-button backtotable">
+      <div onClick={()=>{props.setTab(0)}} className="parent-button backtotable">
         <span>
           <LeftArrow className="right-arrow " />
           Table of Content
@@ -124,7 +125,9 @@ const Others = () => {
         <div className={isEndReached ? "d-remove" : "top scroll-div-others"} />
         <div className="top">
           <h2 className="others-title">Plagiarism and Grammar Checker</h2>
-          <img src={Bg1} className="showcase" alt="" />
+          <div className="others-img-div">
+            <img src={Bg1} className="showcase" alt="" />
+          </div>
           <h2>
             This is our thesis project. It is a repository of thesis documents
             and it also checked the uploads for the plagiarized sentences over
@@ -132,27 +135,35 @@ const Others = () => {
             award.
           </h2>
           <h2 className="others-title">Face Recognition Mobile</h2>
-          <img src={Bg2} className="showcase" alt="" />
+          <div className="others-img-div">
+            <img src={Bg2} className="showcase" alt="" />
+          </div>
           <h2>
             This is a project that we build as proposal for a client in Vietnam.
             I build the frontend and I use React Native.
           </h2>
           <h2 className="others-title">NLEX Scheduling System</h2>
-          <img src={Bg3} className="showcase" alt="" />
+          <div className="others-img-div">
+            <img src={Bg3} className="showcase" alt="" />
+          </div>
           <h2>
             I made this project during my intership in NLEX Traffic Systems. It
             is a system to schedule their mainternance of the CCTV and event
             monitoring.
           </h2>
           <h2 className="others-title">TopNotch Grooming</h2>
-          <img src={Bg4} className="showcase" alt="" />
+          <div className="others-img-div">
+            <img src={Bg4} className="showcase" alt="" />
+          </div>
           <h2>
             This is a thesis project that is a pet grooming scheduler and live
             streaming of the groomer. It also has a store module that you can
             buy their products throught the website.
           </h2>
           <h2 className="others-title">Manga Website</h2>
-          <img src={Bg5} className="showcase" alt="" />
+          <div className="others-img-div">
+            <img src={Bg5} className="showcase" alt="" />
+          </div>
           <h2>
             I made this as a self project during the pandemic for my practice in
             programming. It uses MERN stack that is React and Node.
