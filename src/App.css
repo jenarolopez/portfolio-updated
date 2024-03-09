@@ -327,7 +327,6 @@ a:hover {
   }
 
   .content-left {
-    margin-top: 15%;
     position: relative;
     width: 100%;
   }
@@ -339,6 +338,10 @@ a:hover {
     font-size: 45px;
     /* animation: moveRightOut 0.5s; */
     height: 40px;
+  }
+
+  .content-left span:nth-child(3) {
+    padding-top: 220px;
   }
 
   .content-left > span:hover .title {
