@@ -568,6 +568,7 @@ a:hover {
 .projects h1 {
   text-decoration: underline;
   text-align: center;
+  margin-top: 60px;
 }
 
 .projects h2::first-letter {
@@ -647,7 +648,7 @@ a:hover {
   }
 
   .scroll-div-others {
-    min-height: 0px !important;
+    min-height: calc(60vh - 105px) !important;
   }
 
   .table-content {
@@ -689,7 +690,7 @@ a:hover {
     margin-left: 40px;
     margin-right: 40px;
     margin-top: 15vh;
-    padding: 30px;
+    padding: 10px;
     text-align: left;
     overflow: hidden;
     overflow-y: "scroll";
@@ -697,14 +698,14 @@ a:hover {
   }
 
   .scroll-div .top {
-    min-height: calc(60vh - 75px);
+    min-height: calc(60vh - 130px);
     display: flex;
     flex-direction: column;
   }
 
   .scroll-div {
     overflow: hidden;
-    height: calc(60vh - 75px);
+    height: calc(60vh - 130px);
     /* overflow-y: scroll; */
   }
 }
@@ -771,7 +772,7 @@ a:hover {
 
 @keyframes reduceHeight {
   from {
-    height: calc(60vh - 120px);
+    height: calc(60vh - 130px);
   }
   to {
     height: 0px;
